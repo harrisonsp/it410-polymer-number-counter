@@ -24,11 +24,11 @@
     properties: {
         maximum: {
             type: Number,
-            value: 10       
+            value: NaN       
         },
         minimum: {
             type: Number,
-            value: -10
+            value: NaN
         },
         value: {
             type: Number,
@@ -37,21 +37,24 @@
 
     },
     increment: function() {
-        // console.log(this.value)
-        // console.log(this.maximum)
-        // console.log(this.minimum)
+        if (isNaN(this.maximum) === true){
+            this.value++;
+            return;
+        }
 
         if (this.value < this.maximum){
-            this.value = this.value + 1
+            this.value++;
         }
         
     },
     decrement: function() {
-        // console.log(this.value)
-        // console.log(this.maximum)
-        // console.log(this.minimum)
+        if (isNaN(this.maximum) === true){
+            this.value--;
+            return;
+        }
+
         if (this.value > this.minimum){
-            this.value = this.value - 1
+            this.value--;
         }
     }
   });
